@@ -1,6 +1,4 @@
- # streamlit_app.py
 
-pip install streamlit pandas matplotlib seaborn scikit-learn openpyxl
 
 import streamlit as st
 import pandas as pd
@@ -134,34 +132,3 @@ if uploaded_file:
         file_name='loaded_data.csv',
         mime='text/csv',
     )
-# Use an official Python runtime as a parent image
-FROM python:3.8-slim
-
-# Set the working directory
-WORKDIR /usr/src/app
-
-# Copy the current directory contents into the container at /usr/src/app
-COPY . .
-
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Make port 8501 available to the world outside this container
-EXPOSE 8501
-
-# Define environment variable
-ENV NAME World
-
-# Run streamlit when the container launches
-CMD ["streamlit", "run", "app.py"]
-
-streamlit
-pandas
-matplotlib
-seaborn
-scikit-learn
-openpyxl
-
-docker build -t data-analysis-app .
-
-docker run -p 8501:8501 data-analysis-app
