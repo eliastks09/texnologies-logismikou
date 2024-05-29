@@ -1,0 +1,25 @@
+import pandas as pd
+import streamlit as st
+
+# Φόρτωση δεδομένων
+def load_data(file):
+    if file.name.endswith('.csv'):
+        data = pd.read_csv(file)
+    elif file.name.endswith('.xlsx'):
+        data = pd.read_excel(file)
+    else:
+        data = None
+    return data
+
+# Ενημέρωση Streamlit app
+st.title("Data Analysis App")
+uploaded_file = st.file_uploader("Upload your CSV or Excel file", type=["csv", "xlsx"])
+
+if uploaded_file is not None:
+    data = load_data(uploaded_file)
+
+    if data is not None:
+        st.write("Data Preview:")
+        st.write(data.head())
+    else:
+        st.write("Unsupported file format. Please upload a CSV or Excel file.")
