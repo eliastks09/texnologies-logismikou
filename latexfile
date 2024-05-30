@@ -1,1 +1,112 @@
 
+\documentclass{article}
+\usepackage{fontspec} 
+\usepackage{polyglossia} 
+\setdefaultlanguage{greek} 
+\setotherlanguage{english} 
+\newfontfamily\greekfont{Times New Roman}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\title{ΤΕΧΝΟΛΟΓΙΑ ΛΟΓΙΣΜΙΚΟΥ
+
+Απαλλακτική Εργασία-Ακαδημαϊκό έτος 2023-2024}
+\author{Ηλίας Τάκκας
+Π2018198}
+\date{Μάιος 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Εισαγωγή}
+
+Η ανάλυση δεδομένων αποτελεί σημαντικό πεδίο της τεχνολογίας λογισμικού, καθώς επιτρέπει την εξαγωγή πολύτιμων πληροφοριών και συμπερασμάτων από τα δεδομένα. Αυτή η εργασία έχει σκοπό την ανάπτυξη μιας εφαρμογής ανάλυσης δεδομένων με χρήση ποικίλων τεχνολογιών λογισμικού.
+
+
+\section{Στόχοι}
+
+Οι βασικοί στόχοι του έργου είναι οι εξής:
+
+\begin{itemize}
+    \item Ανάπτυξη μιας εφαρμογής για τη φόρτωση και ανάλυση δεδομένων από αρχεία CSV και Excel.
+    \item Υλοποίηση διαφόρων τεχνικών ανάλυσης δεδομένων, όπως 2D οπτικοποιήσεις και αλγορίθμους μηχανικής μάθησης.
+    \item Παρουσίαση αποτελεσμάτων και σύγκριση της απόδοσης διαφόρων αλγορίθμων.
+    \item Διανομή της εφαρμογής μέσω Docker και διαχείριση του κώδικα μέσω του GitHub.
+\end{itemize}
+
+\section{Κύκλος Ζωής Έκδοσης Λογισμικού}
+Για την ανάπτυξη της εφαρμογής μας, ακολουθήσαμε το μοντέλο Agile. Το Agile μας επιτρέπει να αναπτύσσουμε το λογισμικό σε μικρές, επαναλαμβανόμενες φάσεις ή "σπριντ", καθιστώντας δυνατό τον συνεχή έλεγχο και τη βελτίωση του προϊόντος σε κάθε στάδιο. 
+
+Τα κύρια στάδια του κύκλου ζωής μας είναι τα εξής:
+\begin{itemize}
+    \item Σχεδιασμός: Καθορισμός απαιτήσεων και δημιουργία πλάνου ανάπτυξης.
+    \item Ανάπτυξη: Υλοποίηση των λειτουργιών και των δυνατοτήτων της εφαρμογής.
+    \item Δοκιμή: Έλεγχος του λογισμικού για σφάλματα και δυσλειτουργίες.
+    \item Έκδοση: Διάθεση της εφαρμογής στους χρήστες.
+    \item Ανατροφοδότηση: Συλλογή σχολίων από τους χρήστες και προσαρμογή της εφαρμογής.
+\end{itemize}
+
+\section{UML Διάγραμμα}
+
+\begin{tikzpicture}
+    % User class
+    \node (user) [draw, rectangle, text centered, minimum height=2cm, minimum width=4cm] {
+        \textbf{User} \\
+        \underline{name: String} \\
+        \underline{email: String} \\
+        \underline{password: String} \\
+
+    };
+
+    % DataAnalysisApp class
+    \node (dataAnalysisApp) [draw, rectangle, text centered, minimum height=2cm, minimum width=4cm, right=2cm of user] {
+        \textbf{DataAnalysisApp} \\
+        \underline{data: Data} \\
+        \underline{results: Results} \\
+
+    };
+
+    % CSVLoader class
+    \node (csvLoader) [draw, rectangle, text centered, minimum height=2cm, minimum width=4cm, below=2cm of user] {
+        \textbf{CSVLoader} \\
+        \underline{filePath: String} \\
+
+    };
+
+    % ExcelLoader class
+    \node (excelLoader) [draw, rectangle, text centered, minimum height=2cm, minimum width=4cm, right=2cm of csvLoader] {
+        \textbf{ExcelLoader} \\
+        \underline{filePath: String} \\
+
+    };
+
+    % Relationships
+    \draw[->] (user) -- (dataAnalysisApp);
+    \draw[->] (dataAnalysisApp) -- (csvLoader);
+    \draw[->] (dataAnalysisApp) -- (excelLoader);
+
+\end{tikzpicture}
+
+
+\section{Συμπεράσματα}
+
+Μέσα από την εργασία αυτή, αποκτήσαμε πολύτιμες εμπειρίες στον τομέα της ανάλυσης δεδομένων και της ανάπτυξης λογισμικού. Η εφαρμογή που αναπτύξαμε ανταποκρίνεται στις σύγχρονες ανάγκες ανάλυσης δεδομένων και αποτελεί ένα χρήσιμο εργαλείο για επιχειρήσεις και ερευνητικά εγχειρήματα.
+
+\subsection{Σύνδεσμοι}
+
+\begin{itemize}
+    \item {https://github.com/eliastks09/texnologies-logismikou/tree/main}
+    \item {https://github.com/eliastks09/texnologies-logismikou/blob/main/latexfile}
+\end{itemize}
+
+\section{Στιγμιότυπα}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Screenshot 2024-05-30 144020.png}
+    \caption{Στιγμιότυπo του app}
+    \label{fig:enter-label}
+\end{figure}
+
+\end{document}
